@@ -9,33 +9,35 @@ class Database{
       $this->db_connect();
     }
   
-    protected function db_connect(){
+    public function db_connect(){
       $this->host = '127.0.0.1:3307';
       $this->user = 'root';
       $this->pass = '';
       $this->db = 'youcrafting';
   
       try {
-        $conn = new PDO("mysql:'$this->host=127.0.0.1:3307';'$this->db=youcrafting'", $this->user, $this->pass);
-        echo "Connected to $this->db at $this->host successfully.";
+        return new PDO("mysql:host=127.0.0.1:3307;dbname=youcrafting", $this->user, $this->pass);
+ 
         } catch (PDOException $pe) {
-        return;
+        return 'xcvbn,';
+        }
+      }
+      public function CreateArticle($firstname,$lastname,$username,$email,$password){
+        try{
+            $db=$this->db_connect();
+            $stmt = $db->prepare("INSERT INTO `utilisateur`(`firstname`, `lastname`, `username`,`email`,`password`) VALUES (:firstname,:lastname, :username, :email , :password)");
+            $stmt->bindParam(':firstname', $firstname);
+            $stmt->bindParam(':lastname', $lastname);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password', $password);
+            $stmt->execute();
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+ 
         }
 }
-  //   public function create (){
-  //     $this->db_connect();
-  //   $sql = "INSERT INTO `role`(`titre`, `description`) VALUES ('admin','hello')";
-  //   // use exec() because no results are returned
-
-  //   // $conn->exec($sql);
-  //   var_dump($conn);
-  //   echo "New role created successfully";
-
-  // $conn = null;
-
-
-  //   }
-  }
   // $objet = new Database();
-  // $objet->create();
+  // var_dump($objet->db_connect());
 ?>
