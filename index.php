@@ -7,10 +7,12 @@
             $lastname = $_POST['lastname'];
             $username = $_POST['username'];
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $titre = $_POST['titre'];
+            $contenu = $_POST['contenu'];
+            $date_creation=date('y_m_d h:i:s');
 
     $objet= new Database();
-    $objet->CreateArticle($firstname,$lastname,$username,$email,$password);
+    $objet->CreateUser($firstname,$lastname,$username,$email,$titre,$contenu, $date_creation);
         echo "<script>alert('Successfully inserted data!')</script>";
     }
    
@@ -42,11 +44,14 @@
   </div>
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    <label for="exampleInputPassword1" class="form-label">titre</label>
+    <input type="text" class="form-control" name="titre" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">contenu</label>
+    <input type="text" class="form-control" name="contenu" id="exampleInputPassword1">
   </div>
   <button type="submit" name="submit" class="btn btn-dark">Submit</button>
 </form>

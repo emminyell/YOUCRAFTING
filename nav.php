@@ -14,7 +14,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg fixed-top bg-light navbar-light">
   <div class="container">
-    <a class="navbar-brand" href="#"> YOUCRAFTING </a>
+    <a class="navbar-brand" href="index.php"> YOUCRAFTING </a>
     <button
       class="navbar-toggler"
       type="button"
