@@ -1,17 +1,50 @@
-Concepts Fondamentaux
-1. Classes et Objets
-Classe : Une classe est une structure qui définit les caractéristiques et comportements d'un objet. 
-Elle sert de modèle pour la création d'objets.
-Objet : Un objet est une instance d'une classe.
- Il combine des données (propriétés) et des méthodes (fonctions) pour effectuer des tâches spécifiques.
-2. Encapsulation
-Encapsulation : C'est le regroupement des données et des méthodes qui les manipulent au sein d'une classe.
- L'encapsulation permet de cacher l'implémentation interne et de contrôler l'accès aux données.
-3. Héritage
-Héritage : C'est un mécanisme qui permet à une classe d'hériter des propriétés et méthodes d'une autre classe. 
-Cela favorise la réutilisation du code et la création de hiérarchies de classes.
-4. Polymorphisme
-Polymorphisme : C'est la capacité à traiter des objets de différentes classes de manière uniforme.
-5. Abstraction
-Abstraction : C'est le processus de simplification en masquant les détails complexes et en exposant uniquement ce qui est nécessaire.
- Les classes abstraites et les interfaces sont des outils clés pour l'abstraction.
+       
+       >>>>> PHP OOP :<<<<<<<
+    PHP a introduit des fonctionnalités de programmation orientée objet depuis la version 5.0. 
+    La programmation orientée objet est l’un des paradigmes de programmation les plus populaires basés sur le concept d’objets et de classes.
+    PHP POO vous permet de structurer une application complexe en une structure plus simple et plus facile à maintenir.
+    **************************************
+    Concepts Fondamentaux
+    1. Classes et Objets
+    Classe : Une classe est une structure qui définit les caractéristiques et comportements d'un objet. 
+    Elle sert de modèle pour la création d'objets.
+    Objet : Un objet est une instance d'une classe.
+    Il combine des données (propriétés) et des méthodes (fonctions) pour effectuer des tâches spécifiques.
+    2. Encapsulation
+    Encapsulation : C'est le regroupement des données et des méthodes qui les manipulent au sein d'une classe.
+    L'encapsulation permet de cacher l'implémentation interne et de contrôler l'accès aux données.
+    3. Héritage
+    Héritage : C'est un mécanisme qui permet à une classe d'hériter des propriétés et méthodes d'une autre classe. 
+    Cela favorise la réutilisation du code et la création de hiérarchies de classes.
+    4. Polymorphisme
+    Polymorphisme : C'est la capacité à traiter des objets de différentes classes de manière uniforme.
+    5. Abstraction
+    Abstraction : C'est le processus de simplification en masquant les détails complexes et en exposant uniquement ce qui est nécessaire.
+    Les classes abstraites et les interfaces sont des outils clés pour l'abstraction.
+
+    ***************************************
+    Qu’est-ce que $this en PHP ?
+    En PHP, $this mot-clé fait référence à l’objet courant de la classe. 
+    Le mot-clé $this permet d’accéder aux propriétés et méthodes de l’objet courant au sein de la classe à l’aide de l’opérateur d’objet (->)
+    ******************************************
+    Introduction aux modificateurs d’accès PHP
+    Dans le didacticiel sur les objets et les classes, vous avez appris à utiliser le modificateur d’accès public avec des propriétés et des méthodes.
+
+    PHP dispose de trois modificateurs d’accès : public, privé et protégé. 
+    Dans ce didacticiel, vous allez vous concentrer sur les modificateurs d’accès public et privé.
+
+    Utilisez le modificateur d’accès public pour autoriser l’accès aux propriétés et aux méthodes à l’intérieur et à l’extérieur de la classe.
+    Utilisez le modificateur d’accès privé pour empêcher l’accès depuis l’extérieur de la classe.
+    Utilisez des propriétés privées avec une paire de méthodes publiques getter/setter .
+    *****************************************
+    PHP PDO
+    PHP PDO est une couche d’accès à la base de données qui fournit une interface uniforme pour travailler avec plusieurs bases de données.
+
+    PDO simplifie les opérations courantes de la base de données, notamment :
+
+    Création de connexions à des bases de données
+    Exécution de requêtes à l’aide d’instructions préparées
+    Appel de procédures stockées
+    Effectuer des transactions
+    Et les erreurs de gestion
+
