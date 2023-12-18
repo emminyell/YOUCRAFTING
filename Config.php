@@ -1,5 +1,5 @@
 <?php
-class Database{
+ class Database{
     private String $host;
     private string $user;
     private string $pass;
@@ -46,6 +46,7 @@ class Database{
         }
  
         }
+        // fonction pour afficher
         public function getAllArticlesWithUser() {
           try {
             $db=$this->db_connect();
@@ -57,6 +58,7 @@ class Database{
               echo "Error fetching articles: " . $e->getMessage();
           }
       }
+      //  fonction pour supprimer 
       public function deleteArticle($articleId) {
         try {
           $db=$this->db_connect();
@@ -68,5 +70,22 @@ class Database{
             echo "Error deleting article: " . $e->getMessage();
         }
     }
+
+     
+    public function updateArticle($articleId,$nouveau_titre,$nouveau_contenu) {
+    
+      try {
+        $db=$this->db_connect();
+      $stmt = $db->prepare("UPDATE `article` SET  titre = :titre , contenu = :contenu WHERE Id = :Id");
+      $stmt->bindParam(':Id', $articleId);
+      $stmt->bindParam(':titre', $nouveau_titre);
+      $stmt->bindParam(':contenu', $nouveau_contenu);
+      $stmt->execute();
+
+          echo "<script>alert('Article modified successfully!')</script>";
+      } catch (PDOException $e) {
+          echo "Error deleting article: " . $e->getMessage();
+      }
+  }
     }
 ?>

@@ -26,7 +26,7 @@ if (isset($_POST['Ajouter'])) {
 </head>
 <body>
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-dark"data-bs-toggle="modal" data-bs-target="#exampleModal" style =" margin:80px;" >
+<button type="button" class="btn btn-dark"style =" margin:80px;" >
  <a href="index.php">Ajouter Article</a> 
 </button>
 
@@ -49,7 +49,40 @@ if (isset($_POST['Ajouter'])) {
                 
                 <td>
                   <!-- Bouton Modifier -->
-                  <a href="#" class="btn btn-warning btn-sm">Modifier</a>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$article['Id']?>">
+                      modifier
+                    </button>
+                  <!-- Modal -->
+                    <div class="modal fade" id="exampleModal<?=$article['Id']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                          <form method="post" action="update.php" >
+                            <input type="hidden" value="<?=$article['Id']?>" name="idd">
+                          <div class="container mt-5">
+                        <h2>Formulaire d'Article</h2>
+                      
+                            <div class="form-group">
+                                <label for="titre">Titre de l'article :</label>
+                                <input type="text" class="form-control" id="titre" name="nouveau_titre" value="<?= $article['titre']; ?>"required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contenu">Contenu de l'article :</label>
+                                <textarea class="form-control" id="contenu" name="nouveau_contenu" rows="5" value="" required><?= $article['contenu']; ?></textarea>
+                            </div>
+                        
+                    </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-dark" name="Ajouter" >modifier</button></form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     
                     <!-- Bouton Supprimer -->
                     <a href="delete.php?Id=<?=$article['Id']?>" class="btn btn-danger btn-sm">Supprimer</a>
