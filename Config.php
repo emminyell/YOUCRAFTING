@@ -25,16 +25,13 @@ class Database{
       public function CreateUser($firstname,$lastname,$username,$email,$titre,$contenu,$date_creation){
         try{
             $db=$this->db_connect();
-            $stmt = $db->prepare("INSERT INTO `utilisateur`(`firstname`, `lastname`, `username`,`email`,`password`) VALUES (:firstname,:lastname, :username, :email , :password)");
+            $stmt = $db->prepare("INSERT INTO `utilisateur`(`firstname`, `lastname`, `username`,`email`) VALUES (:firstname,:lastname, :username, :email)");
             $stmt->bindParam(':firstname', $firstname);
             $stmt->bindParam(':lastname', $lastname);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $password);
             $stmt->execute();
 
-            // Récupérer l'ID de l'utilisateur nouvellement inséré
-        $userId = $db->lastInsertId();
         $date_creation=date('y_m_d h:i:s');
 
         // Insérer dans la table "article" avec l'ID de l'utilisateur associé
@@ -52,9 +49,9 @@ class Database{
         public function getAllArticlesWithUser() {
           try {
             $db=$this->db_connect();
-              $stmt = $db->query("SELECT utilisateur.username, article.titre, article.contenu, article.date_de_creation 
-                                         FROM utilisateur
-                                         JOIN article ON utilisateur.user_id = article.user_id");
+              $stmt = $db->query("SELECT * 
+                                         FROM article
+                                         ");
               return $stmt->fetchAll(PDO::FETCH_ASSOC);
           } catch (PDOException $e) {
               echo "Error fetching articles: " . $e->getMessage();
@@ -64,29 +61,12 @@ class Database{
         try {
           $db=$this->db_connect();
             $stmt = $db->prepare("DELETE FROM `article` WHERE Id = :Id");
-            $stmt->bindParam(':Id', $articleId, PDO::PARAM_INT);
+            $stmt->bindParam(':Id', $articleId);
             $stmt->execute();
             echo "<script>alert('Article deleted successfully!')</script>";
         } catch (PDOException $e) {
             echo "Error deleting article: " . $e->getMessage();
         }
     }
-        public function createArticle($titre, $contenu, $dateCreation) {
-          try {
-            $db=$this->db_connect();
-  
-              // Insérer dans la table "article" avec le titre, le contenu et la date de création
-              $stmtArticle = $db->prepare("INSERT INTO `article`(`user_id`, `titre`, `contenu`, `date_de_creation`) VALUES (:user_id, :titre, :contenu, :date_creation)");
-              $stmtArticle->bindParam(':user_id', $userId, PDO::PARAM_INT);
-              $stmtArticle->bindParam(':titre', $titre);
-              $stmtArticle->bindParam(':contenu', $contenu);
-              $stmtArticle->bindParam(':date_creation', $date_creation);
-              $stmtArticle->execute();
-          } catch (PDOException $e) {
-              echo "Erreur lors de la création de l'article : " . $e->getMessage();
-          }
-      }
     }
-  // $objet = new Database();
-  // var_dump($objet->db_connect());
 ?>
