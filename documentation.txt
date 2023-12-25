@@ -12,7 +12,7 @@
 
     *******************************************
     Il combine des données (propriétés) et des méthodes (fonctions) pour effectuer des tâches spécifiques.
-    
+
     2. Encapsulation
     Encapsulation : C'est le regroupement des données et des méthodes qui les manipulent au sein d'une classe.
     L'encapsulation permet de cacher l'implémentation interne et de contrôler l'accès aux données.
@@ -23,8 +23,8 @@
 
     4. Polymorphisme
     Polymorphisme : C'est la capacité à traiter des objets de différentes classes de manière uniforme.
-    5. Abstraction
 
+    5. Abstraction
     Abstraction : C'est le processus de simplification en masquant les détails complexes et en exposant uniquement ce qui est nécessaire.
     Les classes abstraites et les interfaces sont des outils clés pour l'abstraction.
 

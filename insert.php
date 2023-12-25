@@ -49,7 +49,7 @@ if (isset($_POST['Ajouter'])) {
                 
                 <td>
                   <!-- Bouton Modifier -->
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$article['Id']?>">
+                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$article['Id']?>">
                       modifier
                     </button>
                   <!-- Modal -->
